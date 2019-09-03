@@ -1,0 +1,30 @@
+{
+  "name": "gypz-challenge-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@hapi/boom": "^7.4.3",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.11",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analimazn/gypzchallenge-backend.git"
+  },
+  "author": "analimazn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/analimazn/gypzchallenge-backend/issues"
+  },
+  "homepage": "https://github.com/analimazn/gypzchallenge-backend#readme"
+}
