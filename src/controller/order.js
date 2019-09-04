@@ -1,9 +1,14 @@
 const Boom = require('@hapi/boom')
+const services = require('../services/order')
 
 module.exports = {
   async find(req) {
     try {
-      return { message: 'All found successfully', status: 200 }
+      const data = await services.find() 
+      return { 
+        message: 'All found successfully',
+        data: data
+      }
     } catch (err) {
       return Boom.badImplementation(
         { message: 'Error to find all', data: err }
@@ -12,7 +17,11 @@ module.exports = {
   },
   async create(req) {
     try {
-      return { message: 'Created successfully', status: 200 }
+      const data = await services.create(req)
+      return {
+        message: 'Created successfully',
+        data: data
+      }
     } catch (err) {
       return Boom.badImplementation(
         { message: 'Error to create', data: err }
@@ -21,7 +30,11 @@ module.exports = {
   },
   async findOne(req) {
     try {
-      return { message: 'Found successfully', status: 200 }
+      const data = await services.findOne(req)
+      return {
+        message: 'Found successfully',
+        data: data
+      }
     } catch (err) {
       return Boom.badImplementation(
         { message: 'Error to find one', data: err }
@@ -30,7 +43,11 @@ module.exports = {
   },
   async remove(req) {
     try {
-      return { message: 'Removed successfully', status: 200 }
+      const data = await services.remove(req)
+      return {
+        message: 'Removed successfully',
+        data: data
+      }
     } catch (err) {
       return Boom.badImplementation(
         { message: 'Error to remove', data: err }
