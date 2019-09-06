@@ -1,6 +1,11 @@
 const routes = require('express').Router()
 const controller = require('./controller/order')
 
+routes.get('/', async (req, res) => {
+  const result = await controller.index()
+  return res.json(result)
+})
+
 routes.get('/order', async (req, res) => {
   const result = await controller.find()
   return res.json(result)

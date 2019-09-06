@@ -2,6 +2,19 @@ const Boom = require('@hapi/boom')
 const services = require('../services/order')
 
 module.exports = {
+  async index() {
+    try {
+      const data = await services.index()
+      return {
+        message: 'Connection successfully',
+        data: data
+      }
+    } catch (err) {
+      return Boom.badImplementation(
+        { message: 'Error to connect', data: err }
+      )
+    }
+  },
   async find(req) {
     try {
       const data = await services.find() 
