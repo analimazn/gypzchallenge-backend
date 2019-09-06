@@ -11,7 +11,7 @@ const orderSchema = new Schema({
       type: String,
       required: false
     },
-    documentNumber: {
+    document: {
       type: Number,
       required: true
     },
@@ -24,15 +24,31 @@ const orderSchema = new Schema({
     cellphoneNumber: {
       type: Number,
       required: true
-    },
-    phoneNumber: {
-      type: Number,
-      required: false
     }
   },
   address: {
+    country: {
+      type: String,
+      required: true
+    },
+    df: {
+      type: String,
+      required: true
+    },
+    county: {
+      type: String,
+      required: false
+    },
     postCode: {
       type: Number,
+      required: true
+    },
+    neighborhood: {
+      type: String,
+      required: true
+    },
+    street: {
+      type: String,
       required: true
     },
     houseNumber: {
