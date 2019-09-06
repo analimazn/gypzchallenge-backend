@@ -14,16 +14,17 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 mongoose.connection.on('connected', () => {
   console.log("Connected to MongoDB")
+  app.use(cors({origin: '*'}))
+  app.use(express.json())
+  app.use(express.urlencoded({ extended: true }))
+  app.disable('etag');
+  app.use(morgan('dev'))
+  
+  app.use(routes)
+  app.listen(3000)
 })
 
 mongoose.connection.on('error', (err) => {
   console.log("Error while connecting to MongoDB", err)
+  process.exit(1)
 })
-
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(morgan('dev'))
-
-app.use(routes)
-app.listen(3000)
