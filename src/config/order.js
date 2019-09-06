@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = {
   generateScore() {
     try {
@@ -33,6 +35,46 @@ module.exports = {
       } else {
         return { approved: true, creditLimit: 1000000 }
       }
+    } catch (err) {
+      throw err
+    }
+  },
+  async formatJson(req) {
+    try {
+      const date = moment.utc(`${req.body.data.bornDate}`, "YYYY/MM/DD")
+      const score = await this.generateScore()
+      const amount = parseInt(req.body.data.amount)
+      const creditCard = await this.approveCreditCard(score, amount)
+
+      const order = {
+        user: {
+          firstName: req.body.data.firstName.toUpperCase(),
+          lastName: req.body.data.lastName.toUpperCase(),
+          document: req.body.data.document,
+          bornDate: date,
+        },
+        contact: {
+          cellphoneNumber: req.body.data.cellphoneNumber
+        },
+        address: {
+          country: req.body.data.country.toUpperCase(),
+          df: req.body.data.df.toUpperCase(),
+          county: req.body.data.county.toUpperCase(),
+          postCode: req.body.data.postCode,
+          neighborhood: req.body.data.neighborhood.toUpperCase(),
+          street: req.body.data.street.toUpperCase(),
+          houseNumber: req.body.data.houseNumber,
+          moreInfo: req.body.data.moreInfo.toUpperCase(),
+        },
+        creditCardInfo: {
+          amount: amount,
+          approved: creditCard.approved,
+          creditLimit: creditCard.creditLimit
+        },
+        createdAt: new Date()
+      }
+      return order
+
     } catch (err) {
       throw err
     }
