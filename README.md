@@ -11,21 +11,12 @@ API para gerenciar solicitações de cartões de crédito.
 1. [Instalação](#installation)
 2. [Estrutura do Projeto](#concept-of-structure)
     1. [Sobre Controller](#controller-folder)
-<<<<<<< HEAD
     2. [Sobre Models](#models-folder)
     3. [Sobre Services](#services-folder)
     4. [Sobre Utils](#utils-folder)
     5. [Sobre Validations](#validation-folder)
 3. [Dependências do projeto](#dependencies)
 4. [Dependências de desenvolvimento](#dev-dependencies)
-=======
-    2. [Sobre Services](#services-folder)
-    3. [Sobre Validations](#validation-folder)
-    4. [Sobre Utils](#utils-folder)
-    5. [Sobre Models](#models-folder)
-2. [Dependências do projeto](#dependencies)
-3. [Dependências de desenvolvimento](#dev-dependencies)
->>>>>>> Added README
 
 
 ## Instalação
