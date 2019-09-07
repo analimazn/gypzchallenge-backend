@@ -13,7 +13,6 @@ mongoose.connect(process.env.MONGODB_URL, {
 })
 
 mongoose.connection.on('connected', () => {
-  console.log("Connected to MongoDB")
   app.use(cors({origin: '*'}))
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
@@ -25,6 +24,5 @@ mongoose.connection.on('connected', () => {
 })
 
 mongoose.connection.on('error', (err) => {
-  console.log("Error while connecting to MongoDB", err)
   process.exit(1)
 })

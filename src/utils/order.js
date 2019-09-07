@@ -48,8 +48,8 @@ module.exports = {
 
       const order = {
         user: {
-          firstName: req.body.data.firstName.toUpperCase(),
-          lastName: req.body.data.lastName.toUpperCase(),
+          firstName: req.body.data.firstName,
+          lastName: req.body.data.lastName,
           document: req.body.data.document,
           bornDate: date,
         },
@@ -57,14 +57,14 @@ module.exports = {
           cellphoneNumber: req.body.data.cellphoneNumber
         },
         address: {
-          country: req.body.data.country.toUpperCase(),
-          df: req.body.data.df.toUpperCase(),
-          county: req.body.data.county.toUpperCase(),
+          country: req.body.data.country,
+          df: req.body.data.df,
+          county: req.body.data.county,
           postCode: req.body.data.postCode,
-          neighborhood: req.body.data.neighborhood.toUpperCase(),
-          street: req.body.data.street.toUpperCase(),
+          neighborhood: req.body.data.neighborhood,
+          street: req.body.data.street,
           houseNumber: req.body.data.houseNumber,
-          moreInfo: req.body.data.moreInfo.toUpperCase(),
+          moreInfo: req.body.data.moreInfo,
         },
         creditCardInfo: {
           amount: amount,

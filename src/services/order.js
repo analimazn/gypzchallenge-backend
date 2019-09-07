@@ -1,6 +1,6 @@
 const Order = require('../models/Order')
-const moment = require('moment')
-const config = require('../config/order')
+const orderIsValid = require('../validation/order')
+const utils = require('../utils/order')
 
 module.exports = {
   async index() {
@@ -23,10 +23,17 @@ module.exports = {
   },
   async create(req) {
     try {
-      const json = await config.formatJson(req)
-      const order = new Order(json)
-      const result = await order.save()
-      return result
+      const validation = await orderIsValid.validate(req.body.data)
+
+      if (validation !== null) {
+        const json = await utils.formatJson(req)
+        const order = new Order(json)
+        const result = await order.save()
+        return result
+      } else {
+        throw validation
+      }
+
     } catch (err) {
       throw err
     }
