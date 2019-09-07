@@ -12,11 +12,12 @@ mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true
 })
 
-app.use(cors({origin: '*'}))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.disable('etag');
-app.use(morgan('dev'))
-
-app.use(routes)
-app.listen(process.env.PORT || 3000)
+mongoose.connection.on('connected', () => {
+  app.use(cors({origin: '*'}))
+  app.use(express.json())
+  app.use(express.urlencoded({ extended: true }))
+  app.disable('etag');
+  app.use(morgan('dev'))
+  app.use(routes)
+  app.listen(process.env.PORT || 3000)
+})

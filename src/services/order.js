@@ -24,7 +24,6 @@ module.exports = {
   async create(req) {
     try {
       const validation = await orderIsValid.validate(req.body.data)
-
       if (validation !== null) {
         const json = await utils.formatJson(req)
         const order = new Order(json)
@@ -33,7 +32,6 @@ module.exports = {
       } else {
         throw validation
       }
-
     } catch (err) {
       throw err
     }
