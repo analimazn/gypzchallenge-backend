@@ -221,6 +221,14 @@ Os parâmetros devem estar no seguinte formato:
   }
 ```
 
+Após a instalação estar completa e o arquivo `.env` estar devidamente preenchido, para rodar o projeto localmente digite o comando:
+
+```sh
+npm start
+```
+
+O projeto rodará localmente no endereço `http://localhost:3000/`, mas você pode conferí-lo online no endereço [https://gypzchallenge-backend.herokuapp.com/](https://gypzchallenge-backend.herokuapp.com/), onde está armazenado em um servidor no [Heroku](https://www.heroku.com)
+
 ## Dependências
 
 - [@hapi/joi](https://ghub.io/@hapi/joi): Objeto com função de `schema` utilizado para validar Objetos Javascript.
