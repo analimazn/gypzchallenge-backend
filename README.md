@@ -14,7 +14,7 @@ API para gerenciar solicitações de cartões de crédito.
     2. [Sobre Models](#models-folder)
     3. [Sobre Services](#services-folder)
     4. [Sobre Utils](#utils-folder)
-    5. [Sobre Validations](#validation-folder)
+    5. [Sobre Validation](#validation-folder)
 3. [Dependências do projeto](#dependencies)
 4. [Dependências de desenvolvimento](#dev-dependencies)
 
@@ -220,6 +220,16 @@ Os parâmetros devem estar no seguinte formato:
     "createdAt"  : <type: Date>,
   }
 ```
+
+
+Após a instalação estar completa e o arquivo `.env` estar devidamente preenchido, para rodar o projeto localmente digite o comando:
+
+```sh
+npm start
+```
+
+O projeto rodará localmente no endereço [http://localhost:3000/](http://localhost:3000/), mas você pode conferí-lo online no endereço [https://gypzchallenge-backend.herokuapp.com/](https://gypzchallenge-backend.herokuapp.com/) onde está armazenado em um servidor no [Heroku](https://www.heroku.com)
+
 
 ## Dependências
 
